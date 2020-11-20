@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+<html >
+  <head>
+
+    <title>Perguntas e respostas 3 trismestre</title>
+        <script type="text/javascript" language="javascript">
+        var inicio=confirm('Vamos jogar um quiz! Voce tem certeza de que quer participar?');
+        var sair = "<html><head><title>Voce nao quis participar</title></head><body>Obrigado pela sua resposta!<br></body></html>";
+        if(inicio==false){document.write(sair);}
+        else{ window.alert('Vamos! Clique em ok abaixo para iniciar');
+    //Inicio do quiz
+        var certo = "<b>Correto!</b>"; var errado = "<b style='color:red;'>Errado!</b>";var o = new Array();
+        var acertos=0; var erros=0; var respostas = new Array(); var p = new Array();var r = new Array();
+        var t=10; 
+    // LISTA DE PERGUNTAS
+    p[1] = "Quantos animais de cada especie Moises levou para a arca?";
+        r[1] = '0';
+    p[2] = "Se um triangulo retangulo tem lados 6 e 8, qual o valor da sua hipotenusa?";
+        r[2] = 10;
+    p[3] = "Em que ano a Dilma foi eleita para presidente do Brasil?";
+        r[3] = 2010;
+    p[4] = "O o dobro de 25?";
+        r[4] = 50;
+    p[5] = "Em que ano o Brasil foi tri-campeao da Copa do Mundo?";
+        r[5] = 1970;
+    p[6] = "Quantos dedos tem em uma mao??";
+        r[6] = 5;
+    p[7] = "Qual o unico numero primo que e par?";
+        r[7] = 2;
+    p[8] = "Qual deve ser a medida do angulo de um triangulo equilatero?";
+        r[8] = 60;
+    p[9] = "Quantos nomes tinha D. Pedro I?";
+        r[9] = 18;
+    p[10] = "Em que ano tivemos a pandemia do Coronavirus?";
+        r[10] = 2020;
+    
+     for(var i=1;i<=t;i++){o[i] = i;} //gera uma sequencia de t numeros
+     for(var i=1;i<=10;i++)          //embaralha a sequencia 10 vezes
+     {
+        n=Math.round(t*(Math.random())); 
+        m=Math.round(t*(Math.random()));
+        if(m==0){m++;}
+        if(n==0){n++;}
+        var temp = o[n];
+        o[n]=o[m];
+        o[m]=temp;
+     } 
+    for(var i=1;i<=t;i++)
+    {
+        respostas[o[i]] = prompt(p[o[i]],"");
+        if(respostas[o[i]]==r[o[i]]){respostas[o[i]]=certo;acertos++;}else{respostas[o[i]]=errado;erros++;}
+     }
+    //fim do quiz
+    document.write("Javascript Quiz:<br><br>Suas respostas:<br><br>");
+    document.write("<ol>");
+    for(var i=1;i<=t;i++)
+    {
+    document.write("<li>"+respostas[o[i]]);}
+    document.write("</ol>");
+    document.write("<br>Total de acertos: "+acertos);
+    document.write("<br>Total de erros: "+erros);
+    document.write("<br><br><input type=button value='Respostas' Onclick=javascript:if(document.getElementById('rp').style.display=='none'){document.getElementById('rp').style.display='block';}else{document.getElementById('rp').style.display='none';}>");
+    document.write("<br><div id='rp' class='rp' style='display:none;'><ol>");
+    for(var i=1;i<=t;i++)
+     { document.write("<li>"+p[o[i]]+"<br>R:"+r[o[i]]);}
+    document.write("</ol></div>");
+   }
+  </script>
+ </head>
+ <body></body>
+</html>
